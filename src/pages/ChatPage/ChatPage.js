@@ -1,18 +1,22 @@
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import questions from './questions'
 import axios from 'axios'
 import './ChatPage.css'
+import ReactScrollableFeed from 'react-scrollable-feed'
 import Typing from './../../components/Typing';
+
 const ChatPage = () => {
     const [messages, setMessages] = useState([{ owner: false, text: questions[0].question }])
     const [botTyping, setBotTyping] = useState(false)
     const inputRef = useRef()
+    const messagesEndRef = useRef()
     const [currentQuestion, setCurrentQuestion] = useState(0)
     const [dataToSend, setDataToSend] = useState({})
     const fields = ["gender", "Age", "course", "year", "CGPA_val", "Marital status"]
     const [end, setEnd] = useState(false)
+
     const botMessage = async (newMessages, newQuestion) => {
         setBotTyping(true)
         setTimeout(() => {
@@ -27,6 +31,10 @@ const ChatPage = () => {
             }
         }, 1000)
     }
+
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView()
+    }, [messages, botTyping])
 
     const submitMessage = async (message) => {
         if (message.length === 0) return
@@ -50,16 +58,15 @@ const ChatPage = () => {
     }
 
     const sendData = async () => {
+        setBotTyping(true)
         const { data } = await axios.post('https://mental-health-flask-server.herokuapp.com/predict', dataToSend)
         const newMessages = messages
-
-        setBotTyping(true)
         setTimeout(() => {
             setBotTyping(false)
             setMessages([...newMessages
-                , { owner: false, text: `depression score ${data.depression.toFixed(2) * 100}` }
-                , { owner: false, text: `anxiety score ${data.anxiety.toFixed(2) * 100}` }
-                , { owner: false, text: `stress score ${data.stress.toFixed(2) * 100}` }])
+                , { owner: false, text: `depression score ${parseInt(data.depression.toFixed(2) * 100)}` }
+                , { owner: false, text: `anxiety score ${parseInt(data.anxiety.toFixed(2) * 100)}` }
+                , { owner: false, text: `stress score ${parseInt(data.stress.toFixed(2) * 100)}` }])
         }, 1000)
         setEnd(true)
 
@@ -78,10 +85,11 @@ const ChatPage = () => {
                     {botTyping && <div className="message-container">
                         <Typing />
                     </div>}
+                    <div ref={messagesEndRef}></div>
                 </div>
                 {currentQuestion < questions.length ? questions[currentQuestion].type === "num" ?
                     <div className="input-container">
-                        <input type={"number"} placeholder='18 - 25' ref={inputRef}/>
+                        <input type={"number"} placeholder='18 - 25' ref={inputRef} />
                         <button className='send-button' onClick={() => submitMessage(inputRef.current.value)}><FontAwesomeIcon icon={faPaperPlane} /></button>
                     </div> :
                     <div className="mcq-container">
