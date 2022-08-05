@@ -5,3 +5,11 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 700px) {
+  .grid-container {
+      background: url("../public/images/homepage/1.svg");
+      background-size: cover;
+  }
+  
+}
