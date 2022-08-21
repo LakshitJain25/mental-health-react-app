@@ -5,7 +5,7 @@ import questions from './questions'
 import axios from 'axios'
 import './ChatPage.css'
 import ReactScrollableFeed from 'react-scrollable-feed'
-import Typing from './../../components/Typing';
+import Typing from './../../components/Typing/Typing';
 
 const ChatPage = () => {
     const [messages, setMessages] = useState([{ owner: false, text: questions[0].question }])

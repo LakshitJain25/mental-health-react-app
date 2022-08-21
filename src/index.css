@@ -1,13 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Dosis", sans-serif;
 }
-:root{
-  --color1: #272a96;
-  --color2: #3f3d56;
+:root {
+  --color1: white;
+  --color2: black;
+  --color3: #1c8017;
+  --color4: #94a71d;
+  --color5: #59621a;
+  --color6: #e3cd76;
 }
-@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap");
+
 body {
   margin: 0;
   font-family: "Dosis", sans-serif;
