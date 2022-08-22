@@ -1,3 +1,8 @@
+.container {
+  background: radial-gradient(transparent, black 100%), url("../public/images/homepage/bg4.jpg");
+  background-size: cover;
+  background-position: center;
+}
 .header {
   position: fixed;
   color: var(--color1);
@@ -7,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  z-index: 2;
 }
 
 .navbar {
@@ -39,6 +45,12 @@
   -webkit-text-stroke-color: white;
   /* animation: colors 10s ease infinite; */
 }
+.header .logo a{
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  /* animation: colors 10s ease infinite; */
+}
 
 @keyframes colors {
   0% {
@@ -58,6 +70,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 @media (max-width: 620px) {
@@ -65,7 +78,7 @@
     justify-content: center;
   }
   .logo {
-    margin-top:10px;
+    margin-top: 10px;
     text-align: center;
     font-size: 40px;
   }

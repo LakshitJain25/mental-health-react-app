@@ -6,7 +6,7 @@ import ParticlesBackground from '../../components/Particles/ParticlesBackground'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion'
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
-const HomePage = () => {
+const HomePage = ({ variants,transition }) => {
 
 
     const buttonVariants = {
@@ -16,7 +16,7 @@ const HomePage = () => {
         visible: {
             opacity: 1,
             transition: {
-                delay: 0.5,
+                delay: 0.3,
                 when: "beforeChildren",
                 staggerChildren: 0.2
             }
@@ -33,7 +33,13 @@ const HomePage = () => {
     }
 
     return (
-        <div className='homepage-container-background'>
+        <motion.div
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={variants}
+            transition={transition}
+            className='homepage-container-background'>
             <ParticlesBackground />
             <div className='homepage-container'>
                 <h1 className="heading-main">
@@ -57,7 +63,7 @@ const HomePage = () => {
 
                 </motion.div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

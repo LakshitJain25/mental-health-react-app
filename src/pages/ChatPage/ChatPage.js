@@ -6,8 +6,9 @@ import axios from 'axios'
 import './ChatPage.css'
 import ReactScrollableFeed from 'react-scrollable-feed'
 import Typing from './../../components/Typing/Typing';
+import { motion } from 'framer-motion';
 
-const ChatPage = () => {
+const ChatPage = ({ variants, transition }) => {
     const [messages, setMessages] = useState([{ owner: false, text: questions[0].question }])
     const [botTyping, setBotTyping] = useState(false)
     const inputRef = useRef()
@@ -73,7 +74,13 @@ const ChatPage = () => {
     }
 
     return (
-        <div className='chat-container'>
+        <motion.div
+            className='chat-container'
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={variants}
+            transition={transition}>
             <div className="chat-frame">
                 <div className="messages-container">
                     {messages.map((msg, index) => {
@@ -112,7 +119,7 @@ const ChatPage = () => {
                     </div>
                 }
             </div>
-        </div>
+        </motion.div>
     )
 }
 
