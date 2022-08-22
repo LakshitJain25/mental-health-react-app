@@ -19,7 +19,7 @@ function App() {
     out: {
       opacity: 0,
       x: "-100%",
-      rotate: "200deg",
+      // rotate: "200deg",
       transition: {
         duration: 0.6
       }

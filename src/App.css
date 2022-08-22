@@ -1,5 +1,5 @@
 .container {
-  background: radial-gradient(transparent, black 100%), url("../public/images/homepage/bg4.jpg");
+  background: radial-gradient(transparent, black 100%), url("../public/images/homepage/bg2.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -38,6 +38,7 @@
   flex: 1;
   font-size: 30px;
   padding: 0 20px;
+  margin-left:35px;
   letter-spacing: 5px;
   font-weight: 600;
   color: transparent;

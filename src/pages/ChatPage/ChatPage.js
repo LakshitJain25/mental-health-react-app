@@ -2,11 +2,14 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useRef, useState } from 'react'
 import questions from './questions'
+import songs from './songs'
 import axios from 'axios'
 import './ChatPage.css'
 import ReactScrollableFeed from 'react-scrollable-feed'
 import Typing from './../../components/Typing/Typing';
 import { motion } from 'framer-motion';
+import Player from './../../components/Player/Player';
+import ParticlesBackground from './../../components/Particles/ParticlesBackground';
 
 const ChatPage = ({ variants, transition }) => {
     const [messages, setMessages] = useState([{ owner: false, text: questions[0].question }])
@@ -17,6 +20,9 @@ const ChatPage = ({ variants, transition }) => {
     const [dataToSend, setDataToSend] = useState({})
     const fields = ["gender", "Age", "course", "year", "CGPA_val", "Marital status"]
     const [end, setEnd] = useState(false)
+    const [currentSongIndex, setCurrentSongIndex] = useState(0)
+    const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1)
+
 
     const botMessage = async (newMessages, newQuestion) => {
         setBotTyping(true)
@@ -32,6 +38,10 @@ const ChatPage = ({ variants, transition }) => {
             }
         }, 1000)
     }
+
+    useEffect(() => {
+        setNextSongIndex((currentSongIndex + 1) % songs.length)
+    }, [currentSongIndex])
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView()
@@ -81,43 +91,56 @@ const ChatPage = ({ variants, transition }) => {
             exit="out"
             variants={variants}
             transition={transition}>
-            <div className="chat-frame">
-                <div className="messages-container">
-                    {messages.map((msg, index) => {
-                        return (
-                            <div className={`message-container ${(msg.owner) ? 'owner' : ''}`} key={index}>
-                                <p className='message-text'>{msg.text}</p>
-                            </div>)
-                    })}
-                    {botTyping && <div className="message-container">
-                        <Typing />
-                    </div>}
-                    <div ref={messagesEndRef}></div>
-                </div>
-                {currentQuestion < questions.length ? questions[currentQuestion].type === "num" ?
-                    <div className="input-container">
-                        <input type={"number"} placeholder='18 - 25' ref={inputRef} />
-                        <button className='send-button' onClick={() => submitMessage(inputRef.current.value)}><FontAwesomeIcon icon={faPaperPlane} /></button>
-                    </div> :
-                    <div className="mcq-container">
-                        {questions[currentQuestion].options.map((option, index) => {
+            <ParticlesBackground />
+            <div className="music-player-container">
+                <Player
+                    currentSongIndex={currentSongIndex}
+                    setCurrentSongIndex={setCurrentSongIndex}
+                    nextSongIndex={nextSongIndex}
+                    songs={songs} />
+            </div>
+            <div className="chat-frame-container">
+                <div className="chat-frame">
+                    <div className="messages-container">
+                        {messages.map((msg, index) => {
                             return (
-                                <span
-                                    key={index}
-                                    className="option-container"
-                                    onClick={() => {
-                                        submitMessage(option)
-                                    }}
-                                >{option}</span>
-                            )
+                                <div className={`message-mega-container ${(msg.owner) ? 'owner-container' : ''}`}>
+                                    {!msg.owner && <div className="bot-pic"><img src="./bot.gif" alt="" /></div>}
+                                    <div className={`message-container ${(msg.owner) ? 'owner' : ''}`} key={index}>
+                                        <p className='message-text'>{msg.text}</p>
+                                    </div>
+                                </div>)
                         })}
-                    </div> :
-                    (end === false) && <div className="last-question">
-                        <div className="mcq-container">
-                            <span className='option-container' onClick={sendData}>Submit</span>
-                        </div>
+                        {botTyping && <div className="message-container">
+                            <Typing />
+                        </div>}
+                        <div ref={messagesEndRef}></div>
                     </div>
-                }
+                    {currentQuestion < questions.length ? questions[currentQuestion].type === "num" ?
+                        <div className="input-container">
+                            <input type={"number"} placeholder='18 - 25' ref={inputRef} />
+                            <button className='send-button' onClick={() => submitMessage(inputRef.current.value)}><FontAwesomeIcon icon={faPaperPlane} /></button>
+                        </div> :
+                        <div className="mcq-container">
+                            {questions[currentQuestion].options.map((option, index) => {
+                                return (
+                                    <span
+                                        key={index}
+                                        className="option-container"
+                                        onClick={() => {
+                                            submitMessage(option)
+                                        }}
+                                    >{option}</span>
+                                )
+                            })}
+                        </div> :
+                        (end === false) && <div className="last-question">
+                            <div className="mcq-container">
+                                <span className='option-container' onClick={sendData}>Submit</span>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </motion.div>
     )

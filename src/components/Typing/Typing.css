@@ -11,7 +11,7 @@
     width: 8px;
     height: 8px;
     margin: 0 4px;
-    background: #8d8c91;
+    background: var(--color1);
     border-radius: 50%;
     opacity: 0;
     animation: loadingFade 1s infinite;

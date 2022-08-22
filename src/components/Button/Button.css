@@ -2,10 +2,9 @@
     position: relative;
     font-size: 20px;
     padding: 5px 10px;
-    background: none;
+    /* background: none; */
     border: 2px solid var(--color1);
     color: var(--color1);
-    letter-spacing: 2px;
     font-weight: 300;
     cursor: pointer;
 }

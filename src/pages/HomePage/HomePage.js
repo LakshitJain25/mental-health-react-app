@@ -6,7 +6,7 @@ import ParticlesBackground from '../../components/Particles/ParticlesBackground'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion'
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons'
-const HomePage = ({ variants,transition }) => {
+const HomePage = ({ variants, transition }) => {
 
 
     const buttonVariants = {
@@ -16,7 +16,7 @@ const HomePage = ({ variants,transition }) => {
         visible: {
             opacity: 1,
             transition: {
-                delay: 0.3,
+                delay: 0.4,
                 when: "beforeChildren",
                 staggerChildren: 0.2
             }
@@ -41,6 +41,10 @@ const HomePage = ({ variants,transition }) => {
             transition={transition}
             className='homepage-container-background'>
             <ParticlesBackground />
+                <h2 className="eureka">EUREKA</h2>
+                <div className="ball">.</div>
+                <div className="line"></div>
+
             <div className='homepage-container'>
                 <h1 className="heading-main">
                     "HAPPINESS CAN BE FOUND EVEN IN THE DARKEST OF TIMES, IF ONE ONLY REMEMBERS TO TURN ON THE LIGHT"
@@ -53,12 +57,12 @@ const HomePage = ({ variants,transition }) => {
                     initial="hidden">
                     <motion.div
                         variants={innerButtonVariants}
-                    ><Link to={"test"}><Button text="Self Test" click={null} /></Link></motion.div>
+                    ><Link to={"test"}><Button text="Self Test" click={null} color={"#1c8017"} /></Link></motion.div>
                     <motion.div
                         variants={innerButtonVariants}
                     >
                         <a href="https://github.com/LakshitJain25/mental-health-flask-server/blob/main/notebook/student_mental_health.ipynb" >
-                            <Button text="Analytics" click={null} /></a>
+                            <Button text="Analytics" click={null} color={"#94a71d"} /></a>
                     </motion.div>
 
                 </motion.div>
