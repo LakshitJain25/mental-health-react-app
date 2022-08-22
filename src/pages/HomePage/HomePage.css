@@ -19,10 +19,36 @@
     width: max-content;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 1.6s ease;
+    animation: fadeIn 0.7s ease;
     overflow-x: hidden;
     /* gap:50px; */
 }
+.bulb{
+    margin-left: 10px;
+    color:#FFE900;
+    animation: bulb 4s ease infinite;
+}
+
+@keyframes bulb {
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    75%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+    
+    
+}
+
 .heading-main {
     font-weight: 500;
     font-size: 40px;
