@@ -21,15 +21,14 @@
 }
 
 .chat-frame {
-    width:100%;
     position: relative;
     padding: 20px 10px;
     padding-bottom: 10px;
-    border: 5px solid gray;
+    border: 5px solid rgb(116, 132, 115);
     border-radius: 20px;
     width: 370px;
     height: 600px;
-    background-color: rgba(255, 255, 255, 0.626);
+    background-color: rgba(200, 199, 241, 0.244);
     backdrop-filter: blur(4px);
 }
 
@@ -79,7 +78,7 @@
 }
 .owner {
     /* background-color: var(--color3); */
-    background-color: #104730;
+    background-color: var(--color4);
     color: white;
     font-weight: 300;
 }
@@ -170,7 +169,9 @@
 .mcq-container .option-container:hover {
     border: 2px solid var(--color4);
     color: var(--color4);
-    background-color: white;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background-color: rgba(255, 255, 255, 0.841);
 }
 
 input:focus,

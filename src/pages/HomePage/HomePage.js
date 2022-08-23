@@ -41,9 +41,9 @@ const HomePage = ({ variants, transition }) => {
             transition={transition}
             className='homepage-container-background'>
             <ParticlesBackground />
-                <h2 className="eureka">EUREKA</h2>
-                <div className="ball">.</div>
-                <div className="line"></div>
+            <h2 className="eureka">EUREKA</h2>
+            <div className="ball">.</div>
+            <div className="line"></div>
 
             <div className='homepage-container'>
                 <h1 className="heading-main">
@@ -61,8 +61,9 @@ const HomePage = ({ variants, transition }) => {
                     <motion.div
                         variants={innerButtonVariants}
                     >
-                        <a href="https://github.com/LakshitJain25/mental-health-flask-server/blob/main/notebook/student_mental_health.ipynb" >
-                            <Button text="Analytics" click={null} color={"#94a71d"} /></a>
+                        <Link to="analytics" >
+                            <Button text="Analytics" click={null} color={"#94a71d"} />
+                        </Link>
                     </motion.div>
 
                 </motion.div>

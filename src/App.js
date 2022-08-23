@@ -3,6 +3,11 @@ import './App.css';
 import ChatPage from './pages/ChatPage/ChatPage';
 import HomePage from './pages/HomePage/HomePage';
 import { AnimatePresence, motion } from 'framer-motion'
+import Analytics from './pages/Analytics/Analytics';
+import { useEffect, useRef } from 'react';
+import { curveText } from 'curvetext'
+import ArcText from 'arc-text'
+import Tips from './pages/Tips/Tips';
 
 function App() {
   const location = useLocation()
@@ -31,15 +36,16 @@ function App() {
     ease: "linear"
   }
 
+
   return (
     // <BrowserRouter>
     <div className="container">
       <header className='header'>
-        <span className="logo"><Link to="/" style={{ textDecoration: "none"}}>HAPPIFY</Link></span>
+        <span className="logo"><Link to="/" style={{ textDecoration: "none" }}>HAPPIFY</Link></span>
         <ul className="navbar">
           <li className="navbar-item"><Link to={"/"}>Home</Link></li>
           <li className="navbar-item"><Link to={"/test"}>Test</Link></li>
-          <li className="navbar-item"><Link to={"/"}>Tips</Link></li>
+          <li className="navbar-item"><Link to={"/tips"}>Tips</Link></li>
           <li className="navbar-item"><Link to={"/"}>Contact Us</Link></li>
         </ul>
       </header>
@@ -48,6 +54,8 @@ function App() {
           <Routes location={location} key={location.pathname}>
             <Route path='/' element={<HomePage variants={pageVariants} />} />
             <Route path='/test' element={<ChatPage variants={pageVariants} transition={pageTransition} />} />
+            <Route path='/tips' element={<Tips variants={pageVariants} transition={pageTransition} />} />
+            <Route path='/analytics' element={<Analytics variants={pageVariants} transition={pageTransition} />} />
           </Routes>
         </AnimatePresence>
       </div>

@@ -35,18 +35,24 @@
   letter-spacing: 6px;
 }
 .header .logo {
+  position: relative;
   flex: 1;
   font-size: 30px;
   padding: 0 20px;
-  margin-left:35px;
+  /* margin-left: 35px; */
   letter-spacing: 5px;
   font-weight: 600;
   color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
+  transition: 4.3s ease;
   /* animation: colors 10s ease infinite; */
 }
-.header .logo a{
+.header .logo:hover {
+  cursor: pointer;
+}
+
+.header .logo a {
   color: transparent;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;

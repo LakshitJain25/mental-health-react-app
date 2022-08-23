@@ -3,7 +3,7 @@ import { Particles } from 'react-tsparticles'
 import particlesConfig from './particles-config'
 import { loadFull } from "tsparticles";
 import { useCallback } from "react";
-const ParticlesBackground = () => {
+const ParticlesBackground = ({density = 10}) => {
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
     await loadFull(engine);
@@ -71,7 +71,7 @@ const ParticlesBackground = () => {
               enable: true,
               area: 1000,
             },
-            value: 10,
+            value: density,
           },
           opacity: {
             value: 0.65,
