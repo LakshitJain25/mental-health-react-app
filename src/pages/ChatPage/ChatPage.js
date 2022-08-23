@@ -10,6 +10,7 @@ import Typing from './../../components/Typing/Typing';
 import { motion } from 'framer-motion';
 import Player from './../../components/Player/Player';
 import ParticlesBackground from './../../components/Particles/ParticlesBackground';
+import PlayerList from './../../components/Player/PlayerList/PlayerList';
 
 const ChatPage = ({ variants, transition }) => {
     const [messages, setMessages] = useState([{ owner: false, text: questions[0].question }])
@@ -18,7 +19,7 @@ const ChatPage = ({ variants, transition }) => {
     const messagesEndRef = useRef()
     const [currentQuestion, setCurrentQuestion] = useState(0)
     const [dataToSend, setDataToSend] = useState({})
-    const fields = ["gender", "Age", "course", "year", "CGPA_val", "Marital status"]
+    // const fields = ["gender", "Age", "course", "year", "CGPA_val", "Marital status"]
     const [end, setEnd] = useState(false)
     const [currentSongIndex, setCurrentSongIndex] = useState(0)
     const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1)
@@ -53,13 +54,13 @@ const ChatPage = ({ variants, transition }) => {
         const newDataToSend = dataToSend
         setDataToSend(newDataToSend)
 
-        if (fields[currentQuestion] === "Age") newDataToSend[fields[currentQuestion]] = message
-        else {
-            questions[currentQuestion].options.forEach((option) => {
-                if (option === message) newDataToSend[option] = 1
-                else newDataToSend[option] = 0
-            })
-        }
+        // if (fields[currentQuestion] === "Age") newDataToSend[fields[currentQuestion]] = message
+        // else {
+        //     questions[currentQuestion].options.forEach((option) => {
+        //         if (option === message) newDataToSend[option] = 1
+        //         else newDataToSend[option] = 0
+        //     })
+        // }
 
         const newMessages = [...messages, { owner: true, text: message }]
         const newQuestion = currentQuestion + 1
@@ -99,14 +100,22 @@ const ChatPage = ({ variants, transition }) => {
                     nextSongIndex={nextSongIndex}
                     songs={songs} />
             </div>
+            <div className="music-player-list-container">
+                <PlayerList
+                    currentSongIndex={currentSongIndex}
+                    setCurrentSongIndex={setCurrentSongIndex}
+                    nextSongIndex={nextSongIndex}
+                    songs={songs} />
+            </div>
+
             <div className="chat-frame-container">
                 <div className="chat-frame">
                     <div className="messages-container">
                         {messages.map((msg, index) => {
                             return (
-                                <div className={`message-mega-container ${(msg.owner) ? 'owner-container' : ''}`}>
+                                <div className={`message-mega-container ${(msg.owner) ? 'owner-container' : ''}`} key={index}>
                                     {!msg.owner && <div className="bot-pic"><img src="./bot.gif" alt="" /></div>}
-                                    <div className={`message-container ${(msg.owner) ? 'owner' : ''}`} key={index}>
+                                    <div className={`message-container ${(msg.owner) ? 'owner' : ''}`} >
                                         <p className='message-text'>{msg.text}</p>
                                     </div>
                                 </div>)
@@ -118,7 +127,7 @@ const ChatPage = ({ variants, transition }) => {
                     </div>
                     {currentQuestion < questions.length ? questions[currentQuestion].type === "num" ?
                         <div className="input-container">
-                            <input type={"number"} placeholder='18 - 25' ref={inputRef} />
+                            <input type={"number"} placeholder={questions[currentQuestion].placeholder} ref={inputRef} />
                             <button className='send-button' onClick={() => submitMessage(inputRef.current.value)}><FontAwesomeIcon icon={faPaperPlane} /></button>
                         </div> :
                         <div className="mcq-container">

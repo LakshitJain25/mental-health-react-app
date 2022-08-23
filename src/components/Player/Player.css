@@ -4,6 +4,7 @@
     flex-direction: column;
     gap:20px;
     padding:20px 5px;
+    height:570px;
     justify-content: center;
     align-items: center;
     min-width: 300px;

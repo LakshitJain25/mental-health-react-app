@@ -8,6 +8,7 @@ import { useEffect, useRef } from 'react';
 import { curveText } from 'curvetext'
 import ArcText from 'arc-text'
 import Tips from './pages/Tips/Tips';
+import ContactUs from './pages/ContactUs/ContactUs';
 
 function App() {
   const location = useLocation()
@@ -46,7 +47,7 @@ function App() {
           <li className="navbar-item"><Link to={"/"}>Home</Link></li>
           <li className="navbar-item"><Link to={"/test"}>Test</Link></li>
           <li className="navbar-item"><Link to={"/tips"}>Tips</Link></li>
-          <li className="navbar-item"><Link to={"/"}>Contact Us</Link></li>
+          <li className="navbar-item"><Link to={"/contactus"}>About Us</Link></li>
         </ul>
       </header>
       <div className="grid-container">
@@ -56,6 +57,7 @@ function App() {
             <Route path='/test' element={<ChatPage variants={pageVariants} transition={pageTransition} />} />
             <Route path='/tips' element={<Tips variants={pageVariants} transition={pageTransition} />} />
             <Route path='/analytics' element={<Analytics variants={pageVariants} transition={pageTransition} />} />
+            <Route path='/contactus' element={<ContactUs variants={pageVariants} transition={pageTransition} />} />
           </Routes>
         </AnimatePresence>
       </div>
