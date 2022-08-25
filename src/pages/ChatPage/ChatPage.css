@@ -13,27 +13,50 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 8.5%;
+    left: 40%;
     backdrop-filter: blur(4px);
     border: 3px solid white;
     border: 5px solid rgb(116, 132, 115);
     border-radius: 10px;
     padding: 10px;
+    animation: leftIn 0.8s ease-in;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
 }
+
+@keyframes leftIn {
+    0% {
+        left: 40%;
+    }
+    100% {
+        left: 8.5%;
+    }
+}
+
+@keyframes rightIn {
+    0% {
+        right: 40%;
+    }
+    100% {
+        right: 8.5%;
+    }
+}
+
 .music-player-list-container {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 8.5%;
+    right: 40%;
     backdrop-filter: blur(4px);
     border: 3px solid white;
     border: 5px solid rgb(116, 132, 115);
     border-radius: 10px;
     padding: 10px;
+    animation: rightIn 0.8s ease-in;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+
 }
-
-
-
 
 .chat-frame {
     position: relative;

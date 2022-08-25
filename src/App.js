@@ -9,6 +9,9 @@ import { curveText } from 'curvetext'
 import ArcText from 'arc-text'
 import Tips from './pages/Tips/Tips';
 import ContactUs from './pages/ContactUs/ContactUs';
+import ResultPage from './pages/ResultPage/ResultPage';
+import Community from './pages/Community/Community';
+import Doctor from './pages/Doctor/Doctor';
 
 function App() {
   const location = useLocation()
@@ -46,7 +49,8 @@ function App() {
         <ul className="navbar">
           <li className="navbar-item"><Link to={"/"}>Home</Link></li>
           <li className="navbar-item"><Link to={"/test"}>Test</Link></li>
-          <li className="navbar-item"><Link to={"/tips"}>Tips</Link></li>
+          <li className="navbar-item"><Link to={"/doctor"}>Doctors</Link></li>
+          <li className="navbar-item"><Link to={"/community"}>Community</Link></li>
           <li className="navbar-item"><Link to={"/contactus"}>About Us</Link></li>
         </ul>
       </header>
@@ -56,8 +60,11 @@ function App() {
             <Route path='/' element={<HomePage variants={pageVariants} />} />
             <Route path='/test' element={<ChatPage variants={pageVariants} transition={pageTransition} />} />
             <Route path='/tips' element={<Tips variants={pageVariants} transition={pageTransition} />} />
+            <Route path='/results' element={<ResultPage variants={pageVariants} transition={pageTransition} />} />
             <Route path='/analytics' element={<Analytics variants={pageVariants} transition={pageTransition} />} />
             <Route path='/contactus' element={<ContactUs variants={pageVariants} transition={pageTransition} />} />
+            <Route path='/community' element={<Community variants={pageVariants} transition={pageTransition} />} />
+            <Route path='/doctor' element={<Doctor variants={pageVariants} transition={pageTransition} />} />
           </Routes>
         </AnimatePresence>
       </div>

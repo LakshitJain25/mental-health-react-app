@@ -3,14 +3,13 @@ import { Particles } from 'react-tsparticles'
 import particlesConfig from './particles-config'
 import { loadFull } from "tsparticles";
 import { useCallback } from "react";
-const ParticlesBackground = ({density = 10}) => {
+const ParticlesBackground = ({ density = 10 }) => {
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
     await loadFull(engine);
   }, []);
 
   const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
+
   }, []);
 
   return (
@@ -77,7 +76,7 @@ const ParticlesBackground = ({density = 10}) => {
             value: 0.65,
           },
           shape: {
-            type: ["triangle","star","circle"],
+            type: ["triangle", "star", "circle"],
           },
           size: {
             value: { min: 3, max: 4 },

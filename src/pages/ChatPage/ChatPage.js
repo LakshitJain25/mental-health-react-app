@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
 import Player from './../../components/Player/Player';
 import ParticlesBackground from './../../components/Particles/ParticlesBackground';
 import PlayerList from './../../components/Player/PlayerList/PlayerList';
+import { useNavigate } from 'react-router'
 
 const ChatPage = ({ variants, transition }) => {
     const [messages, setMessages] = useState([{ owner: false, text: questions[0].question }])
@@ -19,12 +20,17 @@ const ChatPage = ({ variants, transition }) => {
     const messagesEndRef = useRef()
     const [currentQuestion, setCurrentQuestion] = useState(0)
     const [dataToSend, setDataToSend] = useState({})
-    // const fields = ["gender", "Age", "course", "year", "CGPA_val", "Marital status"]
     const [end, setEnd] = useState(false)
     const [currentSongIndex, setCurrentSongIndex] = useState(0)
     const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1)
-
-
+    const mappings = {
+        never: 1,
+        sometimes: 2,
+        often: 3,
+        always: 4
+    }
+    const maps = ["never", "often", "sometimes", "always"]
+    const navigate = useNavigate()
     const botMessage = async (newMessages, newQuestion) => {
         setBotTyping(true)
         setTimeout(() => {
@@ -52,16 +58,30 @@ const ChatPage = ({ variants, transition }) => {
         if (message.length === 0) return
 
         const newDataToSend = dataToSend
+        if (maps.includes(message)) {
+            newDataToSend[questions[currentQuestion].label] = mappings[message]
+        }
+        else if (questions[currentQuestion].label === "Gender") {
+            if (message === "Male") {
+                newDataToSend[questions[currentQuestion].label] = 1
+            }
+            else {
+                newDataToSend[questions[currentQuestion].label] = 2
+            }
+        }
+        else if (questions[currentQuestion].label === "CGPA") {
+            const cgpaMaps = {
+                "very satisfied": 4,
+                "satisfied": 3,
+                "moderate": 2,
+                "disappointed": 1
+            }
+            newDataToSend[questions[currentQuestion].label] = cgpaMaps[message]
+        }
+        else {
+            newDataToSend[questions[currentQuestion].label] = parseInt(message)
+        }
         setDataToSend(newDataToSend)
-
-        // if (fields[currentQuestion] === "Age") newDataToSend[fields[currentQuestion]] = message
-        // else {
-        //     questions[currentQuestion].options.forEach((option) => {
-        //         if (option === message) newDataToSend[option] = 1
-        //         else newDataToSend[option] = 0
-        //     })
-        // }
-
         const newMessages = [...messages, { owner: true, text: message }]
         const newQuestion = currentQuestion + 1
         setMessages(newMessages)
@@ -71,18 +91,15 @@ const ChatPage = ({ variants, transition }) => {
 
     const sendData = async () => {
         setBotTyping(true)
+        localStorage.removeItem('responese')
         const { data } = await axios.post('https://mental-health-flask-server.herokuapp.com/predict', dataToSend)
-        const newMessages = messages
-        setTimeout(() => {
-            setBotTyping(false)
-            setMessages([...newMessages
-                , { owner: false, text: `depression score ${parseInt(data.depression.toFixed(2) * 100)}` }
-                , { owner: false, text: `anxiety score ${parseInt(data.anxiety.toFixed(2) * 100)}` }
-                , { owner: false, text: `stress score ${parseInt(data.stress.toFixed(2) * 100)}` }])
-        }, 1000)
-        setEnd(true)
-
+        const dataToSave = { ...dataToSend, ...data }
+        localStorage.setItem('response', JSON.stringify(dataToSave))
+        // setEnd(true)
+        navigate('/analytics')
     }
+
+
 
     return (
         <motion.div
@@ -93,13 +110,18 @@ const ChatPage = ({ variants, transition }) => {
             variants={variants}
             transition={transition}>
             <ParticlesBackground />
-            <div className="music-player-container">
+
+            <motion.div
+                className="music-player-container"
+                initial="hidden"
+                animate="visible"
+            >
                 <Player
                     currentSongIndex={currentSongIndex}
                     setCurrentSongIndex={setCurrentSongIndex}
                     nextSongIndex={nextSongIndex}
                     songs={songs} />
-            </div>
+            </motion.div>
             <div className="music-player-list-container">
                 <PlayerList
                     currentSongIndex={currentSongIndex}

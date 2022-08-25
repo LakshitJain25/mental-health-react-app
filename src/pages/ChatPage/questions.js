@@ -1,31 +1,38 @@
 const questions = [
 
     {
+        question: "What's your age?",
+        placeholder: "18-25",
+        type: "num",
+        label: "Age"
+    },
+    {
         question: "What's your gender?",
         type: "mcq",
         options: [
             "Female",
             "Male"
-        ]
-    },
-    {
-        question: "What's your age?",
-        placeholder: "18-25",
-        type: "num"
+        ],
+        label: "Gender"
     },
     {
         question: "How much are you satisfied with your CGPA?",
         type: "mcq",
         options:
-            ["high",
-                "mid",
-                "low"]
+            [
+                "very satisfied",
+                "satisfied",
+                "moderate",
+                "disappointed"
+            ],
+        label: "CGPA"
 
     },
     {
         question: "How much time do you spend on social media(in hours)?",
         placeholder: "0-24",
-        type: "num"
+        type: "num",
+        label: "social_media"
     }
     ,
     {
@@ -37,14 +44,16 @@ const questions = [
                 "sometimes",
                 "often",
                 "always"
-            ]
+            ],
+        label: "difficult_relax"
 
     }
     ,
     {
         question: "How much free time do you have in a day(in hours)?",
         placeholder: "0-24",
-        type: "num"
+        type: "num",
+        label: "free_time"
     },
     {
         question: "Do you feel that you have nothing to look forward to?",
@@ -55,7 +64,8 @@ const questions = [
                 "sometimes",
                 "often",
                 "always"
-            ]
+            ],
+        label: "look_forward"
 
     }
     ,
@@ -68,7 +78,8 @@ const questions = [
                 "sometimes",
                 "often",
                 "always"
-            ]
+            ],
+        label: "overreact"
 
     }
     ,
@@ -81,7 +92,8 @@ const questions = [
                 "sometimes",
                 "often",
                 "always"
-            ]
+            ],
+        label: "dry_mouth"
 
     }
     ,
@@ -94,7 +106,8 @@ const questions = [
                 "sometimes",
                 "often",
                 "always"
-            ]
+            ],
+        label: "trembling_suffocation"
 
     },
     {
@@ -106,7 +119,8 @@ const questions = [
                 "sometimes",
                 "often",
                 "always"
-            ]
+            ],
+        label: "least_enthusiasm"
 
     },
     {
@@ -118,13 +132,15 @@ const questions = [
                 "sometimes",
                 "often",
                 "always"
-            ]
+            ],
+        label: "feel_scared"
 
     },
     {
         question: "How much time you spend on digital entertainment (eg: video games,netflix,etc.)?",
         type: "num",
         placeholder: "0-24",
+        label: "games_OTT_platforms"
 
     },
     {
@@ -136,7 +152,8 @@ const questions = [
                 "sometimes",
                 "often",
                 "always"
-            ]
+            ],
+        label: "offended"
 
     },
     {
@@ -148,7 +165,8 @@ const questions = [
                 "sometimes",
                 "often",
                 "always"
-            ]
+            ],
+        label: "stay_negative"
 
     }
 ]
