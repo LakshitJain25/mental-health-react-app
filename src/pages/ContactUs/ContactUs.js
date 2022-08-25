@@ -5,6 +5,21 @@ import { motion } from 'framer-motion';
 import ParticlesBackground from './../../components/Particles/ParticlesBackground';
 const ContactUs = ({ variants, transition }) => {
     const team = [
+
+        {
+            name: "Vaibhavi",
+            email: "vaibhavikamble2915@gmail.com",
+            role: "ML engineer",
+            github: "https://www.linkedin.com/in/vaibhavi-kamble-b33364204/",
+            linkedin: "https://www.linkedin.com/in/vaibhavi-kamble-b33364204/"
+        },
+        {
+            name: "Vidhi Khubchandani",
+            email: "khubchandanividhi613@gmail.com",
+            role: "backend developer",
+            github: "https://www.linkedin.com/in/vidhi-khubchandani-133646202/",
+            linkedin: "https://www.linkedin.com/in/vidhi-khubchandani-133646202/"
+        },
         {
             name: "Lakshit Jain",
             email: "lakshitjainprof@gmail.com",
@@ -19,20 +34,7 @@ const ContactUs = ({ variants, transition }) => {
             github: "https://github.com/anmolwadhwaxx",
             linkedin: "https://www.linkedin.com/in/anmol-wadhwa/"
         },
-        {
-            name: "Vidhi Khubchandani",
-            email: "khubchandanividhi613@gmail.com",
-            role: "backend developer",
-            github: "https://www.linkedin.com/in/vidhi-khubchandani-133646202/",
-            linkedin: "https://www.linkedin.com/in/vidhi-khubchandani-133646202/"
-        },
-        {
-            name: "Vaibhavi",
-            email: "vaibhavikamble2915@gmail.com",
-            role: "ML engineer",
-            github: "https://www.linkedin.com/in/vaibhavi-kamble-b33364204/",
-            linkedin: "https://www.linkedin.com/in/vaibhavi-kamble-b33364204/"
-        }
+
     ]
     return (
         <motion.div
@@ -42,7 +44,7 @@ const ContactUs = ({ variants, transition }) => {
             variants={variants}
             transition={transition}
             className='profile-container'>
-            <ParticlesBackground density={40}/>
+            <ParticlesBackground density={40} />
             <h2 className="profile-heading">Meet Our Team</h2>
             <div className="profile-cards">
                 {team.map((member, index) => {

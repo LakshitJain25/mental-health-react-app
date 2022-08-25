@@ -2,7 +2,7 @@
     width: 280px;
     height: 400px;
     backdrop-filter: blur(10px);
-    border: 2px rgba(255, 255, 255, 0.39) solid;
+    border: 2px solid var(--borderColor);
     /* border-radius: 10px; */
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -17,7 +17,7 @@
     transform: translate(-5px, -5px);
     height: 100%;
     width: 100%;
-    border: 2px rgba(255, 255, 255, 0.39) solid;
+    border: 2px var(--borderColor) solid;
     transition: 0.3s ease;
 }
 .box {

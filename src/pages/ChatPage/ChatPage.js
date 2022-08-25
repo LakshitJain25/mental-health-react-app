@@ -30,6 +30,7 @@ const ChatPage = ({ variants, transition }) => {
         always: 4
     }
     const maps = ["never", "often", "sometimes", "always"]
+    const chatEnterRef = useRef()
     const navigate = useNavigate()
     const botMessage = async (newMessages, newQuestion) => {
         setBotTyping(true)
@@ -95,8 +96,8 @@ const ChatPage = ({ variants, transition }) => {
         const { data } = await axios.post('https://mental-health-flask-server.herokuapp.com/predict', dataToSend)
         const dataToSave = { ...dataToSend, ...data }
         localStorage.setItem('response', JSON.stringify(dataToSave))
-        // setEnd(true)
-        navigate('/analytics')
+        setEnd(true)
+        navigate('/results')
     }
 
 
@@ -148,10 +149,18 @@ const ChatPage = ({ variants, transition }) => {
                         <div ref={messagesEndRef}></div>
                     </div>
                     {currentQuestion < questions.length ? questions[currentQuestion].type === "num" ?
-                        <div className="input-container">
-                            <input type={"number"} placeholder={questions[currentQuestion].placeholder} ref={inputRef} />
-                            <button className='send-button' onClick={() => submitMessage(inputRef.current.value)}><FontAwesomeIcon icon={faPaperPlane} /></button>
-                        </div> :
+                        <form className="input-container" onSubmit={(e) => {
+                            e.preventDefault()
+                            submitMessage(inputRef.current.value)
+                        }}>
+                            <input type={"number"}
+                                placeholder={questions[currentQuestion].placeholder}
+                                ref={inputRef}
+                                required />
+                            <button
+                                className='send-button'
+                                type='submit'><FontAwesomeIcon icon={faPaperPlane} /></button>
+                        </form> :
                         <div className="mcq-container">
                             {questions[currentQuestion].options.map((option, index) => {
                                 return (

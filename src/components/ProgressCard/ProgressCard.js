@@ -6,9 +6,11 @@ import { useRef } from 'react'
 const ProgressCard = ({ heading, score, color, max }) => {
 
     const circleRef = useRef()
+    const borderRef = useRef()
     useEffect(() => {
         circleRef.current.style.setProperty('--score', ((440 / 100) * (100 - score)))
-    }, [score])
+        borderRef.current.style.setProperty('--borderColor', (max) ? "white" : "rgba(255, 255, 255, 0.373)")
+    }, [score, max])
     const emojis = {
         "healthy": "😊",
         "stressed": (score < 70) ? "😣" : "😫",
@@ -18,11 +20,10 @@ const ProgressCard = ({ heading, score, color, max }) => {
     const size_styles = {
         width: (max) ? "300px" : "280px",
         height: (max) ? "450px" : "400px"
-
     }
 
     return (
-        <div className='progress-card-container' style={size_styles} >
+        <div className='progress-card-container' style={size_styles} ref={borderRef}>
             <div className="box">
                 <div className="percent">
                     <svg>
@@ -37,7 +38,7 @@ const ProgressCard = ({ heading, score, color, max }) => {
                         style={{ color: (heading === "stressed" && score < 70) ? "yellow" : color }}
                     >.</div>
                     <div className="number">
-                        <h2>{score}<span>%</span></h2>
+                        <h2>{Math.round(score)}<span>%</span></h2>
                     </div>
                 </div>
                 <h2 className="text">{(heading === "stressed" ? (score < 70) ? "stressed" : "highly stressed" : heading)}</h2>

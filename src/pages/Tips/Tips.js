@@ -4,6 +4,9 @@ import './Tips.css'
 import tips from './tipsData'
 import { motion } from 'framer-motion';
 import ParticlesBackground from './../../components/Particles/ParticlesBackground';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 const Tips = ({ variants, transition }) => {
 
 
@@ -25,6 +28,20 @@ const Tips = ({ variants, transition }) => {
                         <TipCard key={index} text={tip} index={index} />
                     )
                 })}
+            </div>
+            <div className="link-buttons">
+                <Link to="/doctor" style={{ color: "white", textDecoration: "none" }}>
+                    <div className="doctors-btn">
+                        <p>Doctors</p>
+                        <span><FontAwesomeIcon icon={faPlay} /></span>
+                    </div>
+                </Link>
+                <Link to="/community" style={{ color: "white", textDecoration: "none" }}>
+                    <div className="community-btn">
+                        <p>Community</p>
+                        <span><FontAwesomeIcon icon={faPlay} /></span>
+                    </div>
+                </Link>
             </div>
         </motion.div>
     )

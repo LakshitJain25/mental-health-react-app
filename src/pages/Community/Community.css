@@ -8,9 +8,9 @@
 }
 
 .community-heading {
-    font-size: 30px;
+    font-size: 35px;
     color: white;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     backdrop-filter: blur(5px);
     padding: 5px;
 }
@@ -24,7 +24,7 @@
     cursor: pointer;
     /* background-color: rgba(255, 255, 255, 0.316); */
     backdrop-filter: blur(10px);
-    transition:0.3s ease;
+    transition: 0.3s ease;
 }
 .whatsapp-container:hover {
     background-color: rgba(255, 255, 255, 0.316);
@@ -35,7 +35,14 @@
 }
 .tagline {
     font-size: 17px;
-    backdrop-filter: blur(10px);
-    padding: 5px;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 2px;
+    line-height: 30px;
+    backdrop-filter: blur(5px);
+    padding: 20px;
     letter-spacing: 1px;
 }

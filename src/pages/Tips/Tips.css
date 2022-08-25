@@ -14,22 +14,65 @@
     animation: float 4s ease-in-out infinite;
 }
 @keyframes float {
-	0% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-		transform: translatey(0px);
-	}
-	50% {
-		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
-		transform: translatey(-20px);
-	}
-	100% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-		transform: translatey(0px);
-	}
+    0% {
+        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+        transform: translatey(0px);
+    }
+    50% {
+        box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+        transform: translatey(-20px);
+    }
+    100% {
+        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+        transform: translatey(0px);
+    }
 }
 
 .tips-container {
     display: flex;
     flex-direction: column;
     gap: 40px;
+}
+.link-buttons {
+    top:-10%;
+    right:-50%;
+    height:600px;
+    background-color: aliceblue;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.doctors-btn {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: row;
+    text-decoration: none;
+    position: absolute;
+    right: -45%;
+    width:180px;
+    letter-spacing: 3px;
+    bottom: 39%;
+    background: transparent;
+    border: 2px solid white;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+
+.community-btn {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    text-decoration: none;
+    position: absolute;
+    right: -45%;
+    bottom: 29%;
+    background: transparent;
+    border: 2px solid white;
+    padding: 5px 10px;
+    font-size: 20px;
 }

@@ -61,9 +61,9 @@ const HomePage = ({ variants, transition }) => {
                     <motion.div
                         variants={innerButtonVariants}
                     >
-                        <Link to="analytics" >
+                        <a href='https://github.com/anmolwadhwaxx/happify-analytics/blob/main/Google_Form_Analytics.ipynb' target="_blank">
                             <Button text="Analytics" click={null} color={"#94a71d"} />
-                        </Link>
+                        </a>
                     </motion.div>
 
                 </motion.div>

@@ -37,6 +37,7 @@ const ResultPage = ({ variants, transition }) => {
       className='results-container'>
       <ParticlesBackground />
       <h2 className="results-heading">Your Results</h2>
+      <h3 className="results-tagline">As per your responses, your emotional wellness score lies in the <span>{max_mappings[max]}</span> range</h3>
       <div className="scores-container">
         <ProgressCard
           heading={max_mappings[(max + 1) % 3]}
@@ -66,7 +67,7 @@ const ResultPage = ({ variants, transition }) => {
       </Link>
       <Link to="/tips" style={{ color: "white", textDecoration: "none" }}>
         <div className="tips-btn">
-          <p>Personalised Tips For You</p>
+          <p>Personalised Tips</p>
           <span><FontAwesomeIcon icon={faPlay} /></span>
         </div>
       </Link>
