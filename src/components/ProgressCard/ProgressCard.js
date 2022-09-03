@@ -23,7 +23,7 @@ const ProgressCard = ({ heading, score, color, max }) => {
     }
 
     return (
-        <div className='progress-card-container' style={size_styles} ref={borderRef}>
+        <div className={`progress-card-container ${max ? "" : "hide"}`} style={size_styles} ref={borderRef} >
             <div className="box">
                 <div className="percent">
                     <svg>

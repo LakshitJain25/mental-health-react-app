@@ -39,3 +39,13 @@
         opacity: 0;
     }
 }
+
+@media (max-width: 620px) {
+    .tipcard-container {
+        width: 275px;
+        padding: 10px;
+        display: flex;
+        font-size: 10px;
+        backdrop-filter: blur(8px);
+    }
+}

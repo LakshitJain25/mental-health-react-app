@@ -65,3 +65,19 @@
 .tips-btn:hover {
     border: 2px solid white;
 }
+
+@media (max-width: 620px) {
+    .results-tagline {
+        display: none;
+    }
+    .results-heading {
+        display: none;
+    }
+    .analytics-btn{
+        display: none;;
+    }
+    .tips-btn{
+        font-size: 16px;
+        bottom:15%;
+    }
+}

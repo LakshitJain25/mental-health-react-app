@@ -93,4 +93,8 @@
   .navbar {
     display: none;
   }
+  .ball,.line,.eureka{
+    display: none;
+  }
+
 }

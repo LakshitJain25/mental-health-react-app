@@ -16,14 +16,14 @@ const ContactUs = ({ variants, transition }) => {
         {
             name: "Vidhi Khubchandani",
             email: "khubchandanividhi613@gmail.com",
-            role: "backend developer",
+            role: "ML engineer",
             github: "https://www.linkedin.com/in/vidhi-khubchandani-133646202/",
             linkedin: "https://www.linkedin.com/in/vidhi-khubchandani-133646202/"
         },
         {
             name: "Lakshit Jain",
             email: "lakshitjainprof@gmail.com",
-            role: "website developer",
+            role: "frontend/backend developer",
             github: "https://github.com/LakshitJain25",
             linkedin: "https://www.linkedin.com/in/lakshit-jain-2bb2a4220/"
         },

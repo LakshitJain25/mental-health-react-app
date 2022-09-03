@@ -38,10 +38,10 @@
     width: 150px;
     height: 150px;
 }
-.box .percent .dot{
+.box .percent .dot {
     position: absolute;
-    top:-80%;
-    right:-20%;
+    top: -80%;
+    right: -20%;
     transform: translateX(-50%);
     font-size: 150px;
 }
@@ -136,4 +136,14 @@
 .range-container p {
     letter-spacing: 2px;
     color: white;
+}
+
+@media (max-width: 620px) {
+    .hide{
+        display: none;
+    }
+    .range-container span {
+        font-size: 30px;
+        font-weight: 600;
+    }
 }

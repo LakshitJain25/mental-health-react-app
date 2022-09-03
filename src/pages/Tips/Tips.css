@@ -76,3 +76,29 @@
     padding: 5px 10px;
     font-size: 20px;
 }
+
+@media (max-width: 620px) {
+    .tips-container {
+        gap: 10px;
+    }
+    .yoga-container{
+        display: none;
+    }
+    .link-buttons {
+        top:-130%;
+        right:26%;
+        height:500px;
+        position: absolute;
+        gap: 20px;
+    }
+    .doctors-btn{display: none;}
+
+    .doctors-btn,.community-btn{
+        font-size:15px;
+        backdrop-filter: blur(10px);
+        width:150px;
+        text-align: center;
+        justify-content: center;
+    }
+    
+}

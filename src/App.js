@@ -48,8 +48,6 @@ function App() {
         <span className="logo"><Link to="/" style={{ textDecoration: "none" }}>HAPPIFY</Link></span>
         <ul className="navbar">
           <li className="navbar-item"><Link to={"/"}>Home</Link></li>
-          <li className="navbar-item"><Link to={"/test"}>Test</Link></li>
-          <li className="navbar-item"><Link to={"/doctor"}>Doctors</Link></li>
           <li className="navbar-item"><Link to={"/community"}>Community</Link></li>
           <li className="navbar-item"><Link to={"/contactus"}>About Us</Link></li>
         </ul>

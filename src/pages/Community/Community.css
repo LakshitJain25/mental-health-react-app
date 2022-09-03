@@ -46,3 +46,24 @@
     padding: 20px;
     letter-spacing: 1px;
 }
+
+@media (max-width: 620px) {
+    .community-heading {
+        font-size: 23px;
+    }
+    .tagline {
+        font-size: 15px;
+        width: 380px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 2px;
+        line-height: 30px;
+        backdrop-filter: blur(5px);
+        padding: 20px;
+        letter-spacing: 1px;
+    }
+    
+
+  }

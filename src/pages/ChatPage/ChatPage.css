@@ -229,3 +229,18 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+
+@media (max-width: 620px) {
+    .music-player-container {
+        display: none;
+    }
+    .music-player-list-container{
+        display: none;
+    }
+    .chat-frame {
+        width: 350px;
+        height: 575px;
+    }
+
+  }
+  

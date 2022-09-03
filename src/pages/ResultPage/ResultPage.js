@@ -67,7 +67,7 @@ const ResultPage = ({ variants, transition }) => {
       </Link>
       <Link to="/tips" style={{ color: "white", textDecoration: "none" }}>
         <div className="tips-btn">
-          <p>Personalised Tips</p>
+          <p>Tips</p>
           <span><FontAwesomeIcon icon={faPlay} /></span>
         </div>
       </Link>
