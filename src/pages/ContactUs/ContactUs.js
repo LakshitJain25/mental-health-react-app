@@ -7,25 +7,25 @@ const ContactUs = ({ variants, transition }) => {
     const team = [
 
         {
-            name: "Vaibhavi",
-            email: "vaibhavikamble2915@gmail.com",
+            name: "Shatakshi Verma",
+            email: "shatakshiverma388@gmail.com",
             role: "ML engineer",
-            github: "https://www.linkedin.com/in/vaibhavi-kamble-b33364204/",
-            linkedin: "https://www.linkedin.com/in/vaibhavi-kamble-b33364204/"
+            github: "https://github.com/Shatakshi-verma",
+            linkedin: "https://www.linkedin.com/in/shatakshi-verma-708426200/"
         },
         {
-            name: "Vidhi Khubchandani",
-            email: "khubchandanividhi613@gmail.com",
-            role: "ML engineer",
-            github: "https://www.linkedin.com/in/vidhi-khubchandani-133646202/",
-            linkedin: "https://www.linkedin.com/in/vidhi-khubchandani-133646202/"
+            name: "Akshita Goel",
+            email: "akshitagoel40@gmail.com",
+            role: "frontend/backend developer",
+            github: "https://github.com/Akshita2110",
+            linkedin: "https://www.linkedin.com/in/akshita-goel-98aa111ba"
         },
         {
-            name: "Lakshit Jain",
+            name: "Aayush Mishra",
             email: "lakshitjainprof@gmail.com",
             role: "frontend/backend developer",
-            github: "https://github.com/LakshitJain25",
-            linkedin: "https://www.linkedin.com/in/lakshit-jain-2bb2a4220/"
+            github: "http://github.com/ayuush13",
+            linkedin: "https://www.linkedin.com/mwlite/in/ayush-mishra-7137051b4"
         },
         {
             name: "Anmol Wadhwa",
