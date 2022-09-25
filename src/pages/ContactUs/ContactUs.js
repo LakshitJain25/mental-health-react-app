@@ -43,7 +43,6 @@ const ContactUs = ({ variants, transition }) => {
             variants={variants}
             transition={transition}
             className='profile-container'>
-            <ParticlesBackground density={40} />
             <h2 className="profile-heading">Meet Our Team</h2>
             <div className="profile-cards">
                 {team.map((member, index) => {
