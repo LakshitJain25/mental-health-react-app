@@ -2,7 +2,6 @@ import React from 'react'
 import ProfileCard from '../../components/ProfileCard/ProfileCard'
 import './ContactUs.css'
 import { motion } from 'framer-motion';
-import ParticlesBackground from './../../components/Particles/ParticlesBackground';
 const ContactUs = ({ variants, transition }) => {
     const team = [
 
@@ -21,7 +20,7 @@ const ContactUs = ({ variants, transition }) => {
             linkedin: "https://www.linkedin.com/in/akshita-goel-98aa111ba"
         },
         {
-            name: "Aayush Mishra",
+            name: "Lakshit Jain",
             email: "lakshitjainprof@gmail.com",
             role: "frontend/backend developer",
             github: "http://github.com/ayuush13",

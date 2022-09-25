@@ -1,34 +1,41 @@
-.profile-container{
-    color:white;
+.profile-container {
+    color: white;
     display: flex;
-    width:100%;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:30px;
+    gap: 30px;
     overflow: scroll;
 }
-.profile-heading{
+.profile-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.profile-container {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.profile-heading {
     font-size: 30px;
     letter-spacing: 2px;
     backdrop-filter: blur(3px);
-    padding:5px;
+    padding: 5px;
 }
-.profile-cards{
+.profile-cards {
     display: flex;
     flex-wrap: wrap;
-    gap:20px;
-
+    gap: 20px;
 }
 @media (max-width: 620px) {
-    .profile-container{
-       margin-top: 15%;
-       padding-top:290%;
+    .profile-container {
+        margin-top: 15%;
+        padding-top: 290%;
     }
-    .profile-cards{
+    .profile-cards {
         align-items: center;
         justify-content: center;
         padding-bottom: 70%;
     }
-
-  }
+}
