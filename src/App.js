@@ -49,7 +49,7 @@ function App() {
         <ul className="navbar">
           <li className="navbar-item"><Link to={"/"}>Home</Link></li>
           <li className="navbar-item"><Link to={"/community"}>Community</Link></li>
-          <li className="navbar-item"><Link to={"/contactus"}>About Us</Link></li>
+          {/* <li className="navbar-item"><Link to={"/contactus"}>About Us</Link></li> */}
         </ul>
       </header>
       <div className="grid-container">
@@ -60,7 +60,7 @@ function App() {
             <Route path='/tips' element={<Tips variants={pageVariants} transition={pageTransition} />} />
             <Route path='/results' element={<ResultPage variants={pageVariants} transition={pageTransition} />} />
             <Route path='/analytics' element={<Analytics variants={pageVariants} transition={pageTransition} />} />
-            <Route path='/contactus' element={<ContactUs variants={pageVariants} transition={pageTransition} />} />
+            {/* <Route path='/contactus' element={<ContactUs variants={pageVariants} transition={pageTransition} />} /> */}
             <Route path='/community' element={<Community variants={pageVariants} transition={pageTransition} />} />
             <Route path='/doctor' element={<Doctor variants={pageVariants} transition={pageTransition} />} />
           </Routes>
